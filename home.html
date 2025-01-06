@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トロッコアドベンチャー風クイズ</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>トロッコアドベンチャー風クイズ</h1>
+    <p>あなたの最高スコア: <span id="bestScore">0</span></p>
+    <button onclick="startGame()">ゲームを始める</button>
+    <button onclick="endGame()">ゲームを終了する</button>
+
+    <script>
+        // 過去スコア表示
+        const bestScore = localStorage.getItem("bestScore") || 0;
+        document.getElementById("bestScore").innerText = bestScore;
+
+        function startGame() {
+            window.location.href = "/game"; // ゲーム画面移動
+        }
+
+        function endGame() {
+            if (window.confirm("ゲームを終了しますか？")) {
+                window.close(); // ブラウザタブ閉じる
+                alert("お使いのブラウザでは画面を閉じられないことがあります。手動で閉じてください。");
+            }
+        }
+    </script>
+</body>
+</html>
